@@ -1,0 +1,39 @@
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+# Fungsi untuk halaman edit cc
+@app.route('/edit_cc/<string:id>')
+def edit_cc(id):
+    # Gantikan bagian ini dengan logika untuk mengambil data dari database berdasarkan ID jika diperlukan
+    # Contoh data dummy untuk halaman edit
+    report_data = {
+        'number': '...',
+        'unit': 'cc',
+        'tanggal': '...',
+    }
+    return render_template('edit_cc.html', report=report_data)
+
+# Fungsi untuk halaman edit rtg
+@app.route('/edit_rtg/<string:id>')
+def edit_rtg(id):
+    # Logika untuk mengambil data dari database berdasarkan ID jika diperlukan
+    return render_template('edit_rtg.html')
+
+# Fungsi untuk halaman edit ht
+@app.route('/edit_ht/<string:id>')
+def edit_ht(id):
+    # Logika untuk mengambil data dari database berdasarkan ID jika diperlukan
+    return render_template('edit_ht.html')
+
+# Fungsi untuk halaman edit ab
+@app.route('/edit_ab/<string:id>')
+def edit_ab(id):
+    # Logika untuk mengambil data dari database berdasarkan ID jika diperlukan
+    return render_template('edit_ab.html')
+
+# Fungsi lainnya
+# ...
+
+if __name__ == '__main__':
+    app.run()

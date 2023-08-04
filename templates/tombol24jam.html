@@ -1,0 +1,46 @@
+<!-- Tombol Edit -->
+<button id="editButton" type="button" class="btn btn-primary">Edit</button>
+
+<!-- Tempat menampilkan sisa waktu -->
+<div id="countdown"></div>
+
+<script>
+    // Timestamp waktu batas (25 jam)
+    const twentyFiveHoursInMilliseconds = 25 * 60 * 60 * 1000;
+    const targetTimestamp = Date.now() + twentyFiveHoursInMilliseconds;
+
+    // Fungsi untuk menyembunyikan tombol Edit
+    function hideEditButton() {
+        const editButton = document.getElementById("editButton");
+        editButton.style.display = "none";
+    }
+
+    // Fungsi untuk menampilkan sisa waktu
+    function updateCountdown() {
+        const currentTime = Date.now();
+        const remainingTime = targetTimestamp - currentTime;
+
+        if (remainingTime <= 0) {
+            // Jika batas waktu tercapai, sembunyikan tombol Edit
+            hideEditButton();
+            clearInterval(countdownInterval);
+            return;
+        }
+
+        // Hitung sisa waktu dalam milidetik, detik, menit, jam, dan hari
+        const seconds = Math.floor(remainingTime / 1000) % 60;
+        const minutes = Math.floor(remainingTime / (1000 * 60)) % 60;
+        const hours = Math.floor(remainingTime / (1000 * 60 * 60)) % 24;
+        const days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
+
+        // Tampilkan sisa waktu dalam elemen dengan id="countdown"
+        const countdownElement = document.getElementById("countdown");
+        countdownElement.textContent = `Sisa waktu: ${days} hari, ${hours} jam, ${minutes} menit, ${seconds} detik`;
+    }
+
+    // Panggil fungsi updateCountdown setiap 1 detik
+    const countdownInterval = setInterval(updateCountdown, 1000);
+
+    // Update sisa waktu ketika halaman pertama kali dimuat
+    updateCountdown();
+</script>

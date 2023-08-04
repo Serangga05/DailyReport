@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Report</title>
+
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!-- JAVASCRIPT -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.js"
+        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
+    <style>
+        .custom-input {
+            max-width: 120px;
+        }
+
+        .custom-textarea {
+            width: 100px;
+            height: 150px;
+            margin: 0 auto;
+        }
+
+        .custom-btn {
+            display: flex;
+            justify-content: flex-end;
+        }
+    </style>
+
+    <script>
+        function logout() {
+            // Delete the cookie by setting an expiration date in the past
+            document.cookie = "mytoken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            // Redirect to the login page
+            window.location.replace("/");
+        }
+    </script>
+
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg bg-black">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/" style="color: white;">Daily Report</a>
+            <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a onclick="logout()" class="nav-link active" aria-current="page" href="#"
+                            style="color: white;">Log out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- DAILY REPORT TABLE -->
+    <div class="container-fluid" style="margin-top: 50px;">
+        <div class="wrapper">
+            <form action="/editAB" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="{{data['_id']}}">
+
+                <div class="d-flex justify-content-center">
+                    <input class="form-control text-center" type="text" value="{{data.unit}}" id="unit" name="unit"
+                        aria-label="readonly input example" style="font-size: 24px; font-weight: bold;" readonly>
+                </div>
+
+                <div class="input-group input-group-sm mb-3" style="margin-top: 20px;">
+                    <input type="date" class="form-control custom-input" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-sm" id="tanggal" name="tanggal" value="{{data.tanggal}}">
+                </div>
+                <div class="bd-example">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col">1</th>
+                                    <th scope="col">2</th>
+                                    <th scope="col">3</th>
+                                    <th scope="col">4</th>
+                                    <th scope="col">5</th>
+                                    <th scope="col">6</th>
+                                    <th scope="col">7</th>
+                                    <th scope="col">8</th>
+                                    <th scope="col">9</th>
+                                    <th scope="col">10</th>
+                                    <th scope="col">11</th>
+                                    <th scope="col">12</th>
+                                    <th scope="col">13</th>
+                                    <th scope="col">14</th>
+                                    <th scope="col">15</th>
+                                    <th scope="col">16</th>
+                                    <th scope="col">17</th>
+                                    <th scope="col">18</th>
+                                    <th scope="col">19</th>
+                                    <th scope="col">20</th>
+                                    <th scope="col">21</th>
+                                    <th scope="col">22</th>
+                                    <th scope="col">23</th>
+                                    <th scope="col">24</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">RS 01</th>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="rs01jam1"
+                                                name="rs01jam1" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.rs01jam1 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="rs01jam2"
+                                                name="rs01jam2" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.rs01jam2 }}">
+                                        </div>
+                                    </td>
+
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="rs01jam3"
+                                                name="rs01jam3" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.rs01jam3 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="rs01jam4"
+                                                name="rs01jam4" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.rs01jam4 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="rs01jam5"
+                                                name="rs01jam5" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.rs01jam5 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="rs01jam6"
+                                                name="rs01jam6" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.rs01jam6 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="rs01jam7"
+                                                name="rs01jam7" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.rs01jam7 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="rs01jam8"
+                                                name="rs01jam8" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.rs01jam8 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="rs01jam9"
+                                                name="rs01jam9" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.rs01jam9 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="rs01jam10"
+                                                name="rs01jam10" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.rs01jam10 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="rs01jam11"
+                                                name="rs01jam11" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.rs01jam11 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="rs01jam12"
+                                                name="rs01jam12" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.rs01jam12 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="rs01jam13"
+                                                name="rs01jam13" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.rs01jam13 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="rs01jam14"
+                                                name="rs01jam14" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.rs01jam14 }}">
+                                        </div>
+                                    </td>
+
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="rs01jam15"
+                                                name="rs01jam15" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.rs01jam15 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="rs01jam16"
+                                                name="rs01jam16" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.rs01jam16 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="rs01jam17"
+                                                name="rs01jam17" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.rs01jam17 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="rs01jam18"
+                                                name="rs01jam18" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.rs01jam18 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="rs01jam19"
+                                                name="rs01jam19" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.rs01jam19 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="rs01jam20"
+                                                name="rs01jam20" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.rs01jam20 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="rs01jam21"
+                                                name="rs01jam21" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.rs01jam21 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="rs01jam22"
+                                                name="rs01jam22" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.rs01jam22 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="rs01jam23"
+                                                name="rs01jam23" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.rs01jam23 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="rs01jam24"
+                                                name="rs01jam24" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.rs01jam24 }}">
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">RS 02</th>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="rs02jam1"
+                                                name="rs02jam1" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.rs02jam1 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="rs02jam2"
+                                                name="rs02jam2" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.rs02jam2 }}">
+                                        </div>
+                                    </td>
+
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="rs02jam3"
+                                                name="rs02jam3" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.rs02jam3 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="rs02jam4"
+                                                name="rs02jam4" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.rs02jam4 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="rs02jam5"
+                                                name="rs02jam5" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.rs02jam5 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="rs02jam6"
+                                                name="rs02jam6" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.rs02jam6 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="rs02jam7"
+                                                name="rs02jam7" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.rs02jam7 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="rs02jam8"
+                                                name="rs02jam8" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.rs02jam8 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="rs02jam9"
+                                                name="rs02jam9" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.rs02jam9 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="rs02jam10"
+                                                name="rs02jam10" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.rs02jam10 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="rs02jam11"
+                                                name="rs02jam11" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.rs02jam11 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="rs02jam12"
+                                                name="rs02jam12" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.rs02jam12 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="rs02jam13"
+                                                name="rs02jam13" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.rs02jam13 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="rs02jam14"
+                                                name="rs02jam14" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.rs02jam14 }}">
+                                        </div>
+                                    </td>
+
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="rs02jam15"
+                                                name="rs02jam15" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.rs02jam15 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="rs02jam16"
+                                                name="rs02jam16" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.rs02jam16 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="rs02jam17"
+                                                name="rs02jam17" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.rs02jam17 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="rs02jam18"
+                                                name="rs02jam18" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.rs02jam18 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="rs02jam19"
+                                                name="rs02jam19" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.rs02jam19 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="rs02jam20"
+                                                name="rs02jam20" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.rs02jam20 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="rs02jam21"
+                                                name="rs02jam21" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.rs02jam21 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="rs02jam22"
+                                                name="rs02jam22" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.rs02jam22 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="rs02jam23"
+                                                name="rs02jam23" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.rs02jam23 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="rs02jam24"
+                                                name="rs02jam24" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.rs02jam24 }}">
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">SL</th>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="sljam1"
+                                                name="sljam1" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.sljam1 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="sljam2"
+                                                name="sljam2" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.sljam2 }}">
+                                        </div>
+                                    </td>
+
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="sljam3"
+                                                name="sljam3" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.sljam3 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="sljam4"
+                                                name="sljam4" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.sljam4 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="sljam5"
+                                                name="sljam5" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.sljam5 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="sljam6"
+                                                name="sljam6" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.sljam6 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="sljam7"
+                                                name="sljam7" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.sljam7 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="sljam8"
+                                                name="sljam8" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.sljam8 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="sljam9"
+                                                name="sljam9" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.sljam9 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="sljam10"
+                                                name="sljam10" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.sljam10 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="sljam11"
+                                                name="sljam11" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.sljam11 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="sljam12"
+                                                name="sljam12" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.sljam12 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="sljam13"
+                                                name="sljam13" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.sljam13 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="sljam14"
+                                                name="sljam14" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.sljam14 }}">
+                                        </div>
+                                    </td>
+
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="sljam15"
+                                                name="sljam15" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.sljam15 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="sljam16"
+                                                name="sljam16" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.sljam16 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="sljam17"
+                                                name="sljam17" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.sljam17 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="sljam18"
+                                                name="sljam18" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.sljam18 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="sljam19"
+                                                name="sljam19" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.sljam19 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="sljam20"
+                                                name="sljam20" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.sljam20 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="sljam21"
+                                                name="sljam21" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.sljam21 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="sljam22"
+                                                name="sljam22" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.sljam22 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="sljam23"
+                                                name="sljam23" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.sljam23 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="sljam24"
+                                                name="sljam24" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.sljam24 }}">
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">FL 03</th>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl03jam1"
+                                                name="fl03jam1" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl03jam1 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl03jam2"
+                                                name="fl03jam2" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl03jam2 }}">
+                                        </div>
+                                    </td>
+
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl03jam3"
+                                                name="fl03jam3" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl03jam3 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl03jam4"
+                                                name="fl03jam4" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl03jam4 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl03jam5"
+                                                name="fl03jam5" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl03jam5 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl03jam6"
+                                                name="fl03jam6" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl03jam6 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl03jam7"
+                                                name="fl03jam7" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl03jam7 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl03jam8"
+                                                name="fl03jam8" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl03jam8 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl03jam9"
+                                                name="fl03jam9" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl03jam9 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl03jam10"
+                                                name="fl03jam10" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl03jam10 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl03jam11"
+                                                name="fl03jam11" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl03jam11 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl03jam12"
+                                                name="fl03jam12" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl03jam12 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl03jam13"
+                                                name="fl03jam13" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl03jam13 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl03jam14"
+                                                name="fl03jam14" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl03jam14 }}">
+                                        </div>
+                                    </td>
+
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl03jam15"
+                                                name="fl03jam15" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl03jam15 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl03jam16"
+                                                name="fl03jam16" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl03jam16 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl03jam17"
+                                                name="fl03jam17" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl03jam17 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl03jam18"
+                                                name="fl03jam18" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl03jam18 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl03jam19"
+                                                name="fl03jam19" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl03jam19 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl03jam20"
+                                                name="fl03jam20" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl03jam20 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl03jam21"
+                                                name="fl03jam21" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl03jam21 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl03jam22"
+                                                name="fl03jam22" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl03jam22 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl03jam23"
+                                                name="fl03jam23" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl03jam23 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl03jam24"
+                                                name="fl03jam24" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl03jam24 }}">
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">FL 05</th>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl05jam1"
+                                                name="fl05jam1" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl05jam1 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl05jam2"
+                                                name="fl05jam2" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl05jam2 }}">
+                                        </div>
+                                    </td>
+
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl05jam3"
+                                                name="fl05jam3" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl05jam3 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl05jam4"
+                                                name="fl05jam4" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl05jam4 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl05jam5"
+                                                name="fl05jam5" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl05jam5 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl05jam6"
+                                                name="fl05jam6" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl05jam6 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl05jam7"
+                                                name="fl05jam7" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl05jam7 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl05jam8"
+                                                name="fl05jam8" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl05jam8 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl05jam9"
+                                                name="fl05jam9" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl05jam9 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl05jam10"
+                                                name="fl05jam10" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl05jam10 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl05jam11"
+                                                name="fl05jam11" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl05jam11 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl05jam12"
+                                                name="fl05jam12" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl05jam12 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl05jam13"
+                                                name="fl05jam13" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl05jam13 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl05jam14"
+                                                name="fl05jam14" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl05jam14 }}">
+                                        </div>
+                                    </td>
+
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl05jam15"
+                                                name="fl05jam15" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl05jam15 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl05jam16"
+                                                name="fl05jam16" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl05jam16 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl05jam17"
+                                                name="fl05jam17" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl05jam17 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl05jam18"
+                                                name="fl05jam18" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl05jam18 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl05jam19"
+                                                name="fl05jam19" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl05jam19 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl05jam20"
+                                                name="fl05jam20" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl05jam20 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl05jam21"
+                                                name="fl05jam21" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl05jam21 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl05jam22"
+                                                name="fl05jam22" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl05jam22 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl05jam23"
+                                                name="fl05jam23" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl05jam23 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl05jam24"
+                                                name="fl05jam24" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl05jam24 }}">
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">FL 06</th>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl06jam1"
+                                                name="fl06jam1" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl06jam1 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl06jam2"
+                                                name="fl06jam2" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl06jam2 }}">
+                                        </div>
+                                    </td>
+
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl06jam3"
+                                                name="fl06jam3" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl06jam3 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl06jam4"
+                                                name="fl06jam4" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl06jam4 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl06jam5"
+                                                name="fl06jam5" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl06jam5 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl06jam6"
+                                                name="fl06jam6" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl06jam6 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl06jam7"
+                                                name="fl06jam7" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl06jam7 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl06jam8"
+                                                name="fl06jam8" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl06jam8 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl06jam9"
+                                                name="fl06jam9" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl06jam9 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl06jam10"
+                                                name="fl06jam10" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl06jam10 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl06jam11"
+                                                name="fl06jam11" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl06jam11 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl06jam12"
+                                                name="fl06jam12" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl06jam12 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl06jam13"
+                                                name="fl06jam13" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl06jam13 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl06jam14"
+                                                name="fl06jam14" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl06jam14 }}">
+                                        </div>
+                                    </td>
+
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl06jam15"
+                                                name="fl06jam15" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl06jam15 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl06jam16"
+                                                name="fl06jam16" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl06jam16 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl06jam17"
+                                                name="fl06jam17" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl06jam17 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl06jam18"
+                                                name="fl06jam18" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl06jam18 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl06jam19"
+                                                name="fl06jam19" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl06jam19 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl06jam20"
+                                                name="fl06jam20" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl06jam20 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl06jam21"
+                                                name="fl06jam21" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl06jam21 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl06jam22"
+                                                name="fl06jam22" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl06jam22 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl06jam23"
+                                                name="fl06jam23" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl06jam23 }}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input type="text" class="form-control custom-input" id="fl06jam24"
+                                                name="fl06jam24" aria-label="Sizing example input"
+                                                aria-describedby="inputGroup-sizing-sm" value="{{ data.fl06jam24 }}">
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+                <a>BREAKDOWN</a>
+                <div class="input-group d-flex justify-content-center">
+                    <textarea class="form-control custom-textarea" aria-label="With textarea" id="breakdown"
+                        name="breakdown">{{data.breakdown}}</textarea>
+                </div>
+                <a>CORRECTIVE</a>
+                <div class="input-group d-flex justify-content-center">
+                    <textarea class="form-control custom-textarea" aria-label="With textarea" id="corrective"
+                        name="corrective">{{data.corrective}}</textarea>
+                </div>
+                <a>PREVENTIVE</a>
+                <div class="input-group d-flex justify-content-center">
+                    <textarea class="form-control custom-textarea" aria-label="With textarea" id="preventive"
+                        name="preventive">{{data.preventive}}</textarea>
+                </div>
+                <a>ACCIDENT</a>
+                <div class="input-group d-flex justify-content-center">
+                    <textarea class="form-control custom-textarea" aria-label="With textarea" id="accident"
+                        name="accident">{{data.accident}}</textarea>
+                </div>
+                <a>REMARK</a>
+                <div class="input-group d-flex justify-content-center">
+                    <textarea class="form-control custom-textarea" aria-label="With textarea" id="remark"
+                        name="remark">{{data.remark}}</textarea>
+                </div>
+                <div class="custom-btn" style="margin-top: 50px;">
+                    <button class="btn btn-primary" type="submit">Edit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+
+    <!-- footer -->
+    <footer id="footer"
+        class="d-flex flex-wrap justify-content-between align-items-center py-5 border-top bg-black text-white"
+        style="background-color: black; margin-top: 100px;">
+    </footer>
+</body>
+
+</html>

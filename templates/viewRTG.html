@@ -1,0 +1,1657 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Report</title>
+
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!-- JAVASCRIPT -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.js"
+        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
+    <style>
+        .custom-input {
+            max-width: 120px;
+        }
+
+        .custom-textarea {
+            width: 100px;
+            height: 150px;
+            margin: 0 auto;
+        }
+
+        .custom-btn {
+            display: flex;
+            justify-content: flex-end;
+        }
+    </style>
+
+    <script>
+        function logout() {
+            // Delete the cookie by setting an expiration date in the past
+            document.cookie = "mytoken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            // Redirect to the login page
+            window.location.replace("/");
+        }
+    </script>
+
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg bg-black">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/" style="color: white;">Daily Report</a>
+            <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a onclick="logout()" class="nav-link active" aria-current="page" href="#"
+                            style="color: white;">Log out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- DAILY REPORT TABLE -->
+
+
+
+    <div class="container-fluid" style="margin-top: 50px;">
+        <div class="wrapper">
+            <form action="/viewRTG" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="{{data['_id']}}">
+
+                <div class="d-flex justify-content-center">
+                    <input class="form-control text-center" type="text" value="{{data.unit}}" id="unit" name="unit"
+                        aria-label="readonly input example" style="font-size: 24px; font-weight: bold;" readonly>
+                </div>
+
+                <div class="input-group input-group-sm mb-3" style="margin-top: 20px;">
+                    <input type="date" class="form-control custom-input" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-sm" id="tanggal" name="tanggal" value="{{data.tanggal}}"
+                        readonly>
+                </div>
+                <div class="bd-example">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col">1</th>
+                                    <th scope="col">2</th>
+                                    <th scope="col">3</th>
+                                    <th scope="col">4</th>
+                                    <th scope="col">5</th>
+                                    <th scope="col">6</th>
+                                    <th scope="col">7</th>
+                                    <th scope="col">8</th>
+                                    <th scope="col">9</th>
+                                    <th scope="col">10</th>
+                                    <th scope="col">11</th>
+                                    <th scope="col">12</th>
+                                    <th scope="col">13</th>
+                                    <th scope="col">14</th>
+                                    <th scope="col">15</th>
+                                    <th scope="col">16</th>
+                                    <th scope="col">17</th>
+                                    <th scope="col">18</th>
+                                    <th scope="col">19</th>
+                                    <th scope="col">20</th>
+                                    <th scope="col">21</th>
+                                    <th scope="col">22</th>
+                                    <th scope="col">23</th>
+                                    <th scope="col">24</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <th scope="row">RTG 01</th>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg01jam1 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg01jam2 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg01jam3 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg01jam4 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg01jam5 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg01jam6 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg01jam7 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg01jam8 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg01jam9 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg01jam10 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg01jam11 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg01jam12 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg01jam13 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg01jam14 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg01jam15 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg01jam16 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg01jam17 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg01jam18 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg01jam19 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg01jam20 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg01jam21 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg01jam22 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg01jam23 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg01jam24 }}
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">RTG 02</th>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg02jam1 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg02jam2 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg02jam3 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg02jam4 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg02jam5 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg02jam6 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg02jam7 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg02jam8 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg02jam9 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg02jam10 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg02jam11 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg02jam12 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg02jam13 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg02jam14 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg02jam15 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg02jam16 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg02jam17 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg02jam18 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg02jam19 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg02jam20 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg02jam21 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg02jam22 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg02jam23 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg02jam24 }}
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">RTG 03</th>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg03jam1 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg03jam2 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg03jam3 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg03jam4 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg03jam5 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg03jam6 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg03jam7 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg03jam8 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg03jam9 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg03jam10 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg03jam11 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg03jam12 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg03jam13 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg03jam14 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg03jam15 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg03jam16 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg03jam17 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg03jam18 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg03jam19 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg03jam20 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg03jam21 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg03jam22 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg03jam23 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg03jam24 }}
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">RTG 04</th>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg04jam1 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg04jam2 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg04jam3 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg04jam4 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg04jam5 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg04jam6 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg04jam7 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg04jam8 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg04jam9 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg04jam10 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg04jam11 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg04jam12 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg04jam13 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg04jam14 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg04jam15 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg04jam16 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg04jam17 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg04jam18 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg04jam19 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg04jam20 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg04jam21 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg04jam22 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg04jam23 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg04jam24 }}
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">RTG 05</th>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg05jam1 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg05jam2 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg05jam3 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg05jam4 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg05jam5 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg05jam6 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg05jam7 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg05jam8 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg05jam9 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg05jam10 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg05jam11 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg05jam12 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg05jam13 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg05jam14 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg05jam15 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg05jam16 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg05jam17 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg05jam18 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg05jam19 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg05jam20 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg05jam21 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg05jam22 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg05jam23 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg05jam24 }}
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">RTG 06</th>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg06jam1 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg06jam2 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg06jam3 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg06jam4 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg06jam5 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg06jam6 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg06jam7 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg06jam8 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg06jam9 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg06jam10 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg06jam11 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg06jam12 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg06jam13 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg06jam14 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg06jam15 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg06jam16 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg06jam17 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg06jam18 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg06jam19 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg06jam20 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg06jam21 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg06jam22 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg06jam23 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg06jam24 }}
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">RTG 08</th>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg08jam1 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg08jam2 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg08jam3 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg08jam4 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg08jam5 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg08jam6 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg08jam7 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg08jam8 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg08jam9 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg08jam10 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg08jam11 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg08jam12 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg08jam13 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg08jam14 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg08jam15 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg08jam16 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg08jam17 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg08jam18 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg08jam19 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg08jam20 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg08jam21 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg08jam22 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg08jam23 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg08jam24 }}
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">RTG 10</th>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg09jam1 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg09jam2 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg09jam3 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg09jam4 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg09jam5 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg09jam6 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg09jam7 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg09jam8 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg09jam9 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg09jam10 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg09jam11 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg09jam12 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg09jam13 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg09jam14 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg09jam15 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg09jam16 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg09jam17 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg09jam18 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg09jam19 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg09jam20 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg09jam21 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg09jam22 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg09jam23 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg09jam24 }}
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">RTG 10</th>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg10jam1 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg10jam2 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg10jam3 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg10jam4 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg10jam5 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg10jam6 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg10jam7 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg10jam8 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg10jam9 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg10jam10 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg10jam11 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg10jam12 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg10jam13 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg10jam14 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg10jam15 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg10jam16 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg10jam17 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg10jam18 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg10jam19 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg10jam20 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg10jam21 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg10jam22 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg10jam23 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg10jam24 }}
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">RTG 11</th>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg11jam1 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg11jam2 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg11jam3 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg11jam4 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg11jam5 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg11jam6 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg11jam7 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg11jam8 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg11jam9 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg11jam10 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg11jam11 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg11jam12 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg11jam13 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg11jam14 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg11jam15 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg11jam16 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg11jam17 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg11jam18 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg11jam19 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg11jam20 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg11jam21 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg11jam22 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg11jam23 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg11jam24 }}
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">RTG 12</th>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg12jam1 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg12jam2 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg12jam3 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg12jam4 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg12jam5 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg12jam6 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg12jam7 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg12jam8 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg12jam9 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg12jam10 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg12jam11 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg12jam12 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg12jam13 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg12jam14 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg12jam15 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg12jam16 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg12jam17 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg12jam18 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg12jam19 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg12jam20 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg12jam21 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg12jam22 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg12jam23 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg12jam24 }}
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">RTG 13</th>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg13jam1 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg13jam2 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg13jam3 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg13jam4 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg13jam5 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg13jam6 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg13jam7 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg13jam8 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg13jam9 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg13jam10 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg13jam11 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg13jam12 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg13jam13 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg13jam14 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg13jam15 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg13jam16 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg13jam17 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg13jam18 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg13jam19 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg13jam20 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg13jam21 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg13jam22 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg13jam23 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rtg13jam24 }}
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+                <a>BREAKDOWN</a>
+                <div class="input-group d-flex justify-content-center">
+                    <textarea class="form-control custom-textarea" aria-label="With textarea" id="breakdown"
+                        name="breakdown" readonly> {{data.breakdown}} </textarea>
+                </div>
+                <a>CORRECTIVE</a>
+                <div class="input-group d-flex justify-content-center">
+                    <textarea class="form-control custom-textarea" aria-label="With textarea" id="corrective"
+                        name="corrective" readonly>  {{data.corrective}} </textarea>
+                </div>
+                <a>PREVENTIVE</a>
+                <div class="input-group d-flex justify-content-center">
+                    <textarea class="form-control custom-textarea" aria-label="With textarea" id="preventive"
+                        name="preventive" readonly> {{data.preventive}} </textarea>
+                </div>
+                <a>ACCIDENT</a>
+                <div class="input-group d-flex justify-content-center">
+                    <textarea class="form-control custom-textarea" aria-label="With textarea" id="accident"
+                        name="accident" readonly>{{data.accident}}</textarea>
+                </div>
+                <a>REMARK</a>
+                <div class="input-group d-flex justify-content-center">
+                    <textarea class="form-control custom-textarea" aria-label="With textarea" id="remark" name="remark"
+                        readonly>{{data.remark}}</textarea>
+                </div>
+                <div class="custom-btn" style="margin-top: 50px;">
+                    <a class="btn btn-primary" href="/" role="button">kembali</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- footer -->
+    <footer id="footer"
+        class="d-flex flex-wrap justify-content-between align-items-center py-5 border-top bg-black text-white"
+        style="background-color: black; margin-top: 100px;">
+    </footer>
+</body>
+
+</html>

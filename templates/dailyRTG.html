@@ -1,0 +1,2355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Report</title>
+
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!-- JAVASCRIPT -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.js"
+        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
+    <style>
+        .custom-input {
+            max-width: 120px;
+        }
+
+        .custom-textarea {
+            width: 100px;
+            height: 150px;
+            margin: 0 auto;
+        }
+
+        .custom-btn {
+            display: flex;
+            justify-content: flex-end;
+        }
+    </style>
+
+    <script>
+        function logout() {
+            // Delete the cookie by setting an expiration date in the past
+            document.cookie = "mytoken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/login;";
+            // Redirect to the login page
+            window.location.replace("/login");
+        }
+
+        function input() {
+            let unit = $('#unit').val();
+            let tanggal = $('#tanggal').val();
+
+            let rtg01jam = [];
+            for (let i = 1; i <= 24; i++) {
+                rtg01jam.push($(`#rtg01jam${i}`).val());
+            }
+
+            let rtg02jam = [];
+            for (let i = 1; i <= 24; i++) {
+                rtg02jam.push($(`#rtg02jam${i}`).val());
+            }
+
+            let rtg03jam = [];
+            for (let i = 1; i <= 24; i++) {
+                rtg03jam.push($(`#rtg03jam${i}`).val());
+            }
+
+            let rtg04jam = [];
+            for (let i = 1; i <= 24; i++) {
+                rtg04jam.push($(`#rtg04jam${i}`).val());
+            }
+
+            let rtg05jam = [];
+            for (let i = 1; i <= 24; i++) {
+                rtg05jam.push($(`#rtg05jam${i}`).val());
+            }
+
+            let rtg06jam = [];
+            for (let i = 1; i <= 24; i++) {
+                rtg06jam.push($(`#rtg06jam${i}`).val());
+            }
+
+            let rtg08jam = [];
+            for (let i = 1; i <= 24; i++) {
+                rtg08jam.push($(`#rtg08jam${i}`).val());
+            }
+
+            let rtg09jam = [];
+            for (let i = 1; i <= 24; i++) {
+                rtg09jam.push($(`#rtg09jam${i}`).val());
+            }
+
+            let rtg10jam = [];
+            for (let i = 1; i <= 24; i++) {
+                rtg10jam.push($(`#rtg10jam${i}`).val());
+            }
+
+            let rtg11jam = [];
+            for (let i = 1; i <= 24; i++) {
+                rtg11jam.push($(`#rtg11jam${i}`).val());
+            }
+
+            let rtg12jam = [];
+            for (let i = 1; i <= 24; i++) {
+                rtg12jam.push($(`#rtg12jam${i}`).val());
+            }
+
+            let rtg13jam = [];
+            for (let i = 1; i <= 24; i++) {
+                rtg13jam.push($(`#rtg13jam${i}`).val());
+            }
+
+            let breakdown = $('#breakdown').val();
+            let corrective = $('#corrective').val();
+            let preventive = $('#preventive').val();
+            let accident = $('#accident').val();
+            let remark = $('#remark').val();
+
+            let form_data = new FormData();
+
+            form_data.append('unit_give', unit);
+            form_data.append('tanggal_give', tanggal);
+
+            for (let i = 0; i < 24; i++) {
+                form_data.append(`rtg01jam${i + 1}_give`, rtg01jam[i]);
+            }
+
+            for (let i = 0; i < 24; i++) {
+                form_data.append(`rtg02jam${i + 1}_give`, rtg02jam[i]);
+            }
+
+            for (let i = 0; i < 24; i++) {
+                form_data.append(`rtg03jam${i + 1}_give`, rtg03jam[i]);
+            }
+
+            for (let i = 0; i < 24; i++) {
+                form_data.append(`rtg04jam${i + 1}_give`, rtg04jam[i]);
+            }
+
+            for (let i = 0; i < 24; i++) {
+                form_data.append(`rtg05jam${i + 1}_give`, rtg05jam[i]);
+            }
+
+            for (let i = 0; i < 24; i++) {
+                form_data.append(`rtg06jam${i + 1}_give`, rtg06jam[i]);
+            }
+
+            for (let i = 0; i < 24; i++) {
+                form_data.append(`rtg08jam${i + 1}_give`, rtg08jam[i]);
+            }
+
+            for (let i = 0; i < 24; i++) {
+                form_data.append(`rtg09jam${i + 1}_give`, rtg09jam[i]);
+            }
+
+            for (let i = 0; i < 24; i++) {
+                form_data.append(`rtg10jam${i + 1}_give`, rtg10jam[i]);
+            }
+
+            for (let i = 0; i < 24; i++) {
+                form_data.append(`rtg11jam${i + 1}_give`, rtg11jam[i]);
+            }
+
+            for (let i = 0; i < 24; i++) {
+                form_data.append(`rtg12jam${i + 1}_give`, rtg12jam[i]);
+            }
+
+            for (let i = 0; i < 24; i++) {
+                form_data.append(`rtg13jam${i + 1}_give`, rtg13jam[i]);
+            }
+
+            form_data.append('breakdown_give', breakdown);
+            form_data.append('corrective_give', corrective);
+            form_data.append('preventive_give', preventive);
+            form_data.append('accident_give', accident);
+            form_data.append('remark_give', remark);
+
+            $.ajax({
+                type: "POST",
+                url: "/inputrtg",
+                data: form_data,
+                contentType: false,
+                processData: false,
+                success: function (response) {
+                    {
+                        alert(response["msg"]);
+                        window.location.href = "/";
+                    }
+                },
+            });
+        }
+    </script>
+
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg bg-black">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/" style="color: white;">Daily Report</a>
+            <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a onclick="logout()" class="nav-link active" aria-current="page" href="#"
+                            style="color: white;">Log out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- DAILY REPORT TABLE -->
+    <div class="container-fluid" style="margin-top: 50px;">
+        <div class="wrapper">
+
+            <div class="d-flex justify-content-center">
+                <input class="form-control text-center" type="text" value="Daily Report RTG" id="unit" name="unit"
+                    aria-label="readonly input example" style="font-size: 24px; font-weight: bold;" readonly>
+            </div>
+
+            <div class="input-group input-group-sm mb-3" style="margin-top: 20px;">
+                <input type="date" class="form-control custom-input" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" id="tanggal" name="tanggal">
+            </div>
+            <div class="bd-example">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col">1</th>
+                                <th scope="col">2</th>
+                                <th scope="col">3</th>
+                                <th scope="col">4</th>
+                                <th scope="col">5</th>
+                                <th scope="col">6</th>
+                                <th scope="col">7</th>
+                                <th scope="col">8</th>
+                                <th scope="col">9</th>
+                                <th scope="col">10</th>
+                                <th scope="col">11</th>
+                                <th scope="col">12</th>
+                                <th scope="col">13</th>
+                                <th scope="col">14</th>
+                                <th scope="col">15</th>
+                                <th scope="col">16</th>
+                                <th scope="col">17</th>
+                                <th scope="col">18</th>
+                                <th scope="col">19</th>
+                                <th scope="col">20</th>
+                                <th scope="col">21</th>
+                                <th scope="col">22</th>
+                                <th scope="col">23</th>
+                                <th scope="col">24</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">RTG 01</th>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg01jam1"
+                                            name="rtg01jam1" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg01jam2"
+                                            name="rtg01jam2" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg01jam3"
+                                            name="rtg01jam3" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg01jam4"
+                                            name="rtg01jam4" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg01jam5"
+                                            name="rtg01jam5" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg01jam6"
+                                            name="rtg01jam6" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg01jam7"
+                                            name="rtg01jam7" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg01jam8"
+                                            name="rtg01jam8" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg01jam9"
+                                            name="rtg01jam9" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg01jam10"
+                                            name="rtg01jam10" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg01jam11"
+                                            name="rtg01jam11" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg01jam12"
+                                            name="rtg01jam12" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg01jam13"
+                                            name="rtg01jam13" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg01jam14"
+                                            name="rtg01jam14" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg01jam15"
+                                            name="rtg01jam15" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg01jam16"
+                                            name="rtg01jam16" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg01jam17"
+                                            name="rtg01jam17" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg01jam18"
+                                            name="rtg01jam18" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg01jam19"
+                                            name="rtg01jam19" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg01jam20"
+                                            name="rtg01jam20" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg01jam21"
+                                            name="rtg01jam21" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg01jam22"
+                                            name="rtg01jam22" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg01jam23"
+                                            name="rtg01jam23" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg01jam24"
+                                            name="rtg01jam24" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">RTG 02</th>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg02jam1"
+                                            name="rtg02jam1" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg02jam2"
+                                            name="rtg02jam2" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg02jam3"
+                                            name="rtg02jam3" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg02jam4"
+                                            name="rtg02jam4" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg02jam5"
+                                            name="rtg02jam5" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg02jam6"
+                                            name="rtg02jam6" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg02jam7"
+                                            name="rtg02jam7" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg02jam8"
+                                            name="rtg02jam8" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg02jam9"
+                                            name="rtg02jam9" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg02jam10"
+                                            name="rtg02jam10" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg02jam11"
+                                            name="rtg02jam11" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg02jam12"
+                                            name="rtg02jam12" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg02jam13"
+                                            name="rtg02jam13" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg02jam14"
+                                            name="rtg02jam14" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg02jam15"
+                                            name="rtg02jam15" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg02jam16"
+                                            name="rtg02jam16" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg02jam17"
+                                            name="rtg02jam17" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg02jam18"
+                                            name="rtg02jam18" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg02jam19"
+                                            name="rtg02jam19" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg02jam20"
+                                            name="rtg02jam20" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg02jam21"
+                                            name="rtg02jam21" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg02jam22"
+                                            name="rtg02jam22" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg02jam23"
+                                            name="rtg02jam23" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg02jam24"
+                                            name="rtg02jam24" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">RTG 03</th>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg03jam1"
+                                            name="rtg03jam1" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg03jam2"
+                                            name="rtg03jam2" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg03jam3"
+                                            name="rtg03jam3" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg03jam4"
+                                            name="rtg03jam4" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg03jam5"
+                                            name="rtg03jam5" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg03jam6"
+                                            name="rtg03jam6" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg03jam7"
+                                            name="rtg03jam7" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg03jam8"
+                                            name="rtg03jam8" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg03jam9"
+                                            name="rtg03jam9" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg03jam10"
+                                            name="rtg03jam10" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg03jam11"
+                                            name="rtg03jam11" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg03jam12"
+                                            name="rtg03jam12" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg03jam13"
+                                            name="rtg03jam13" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg03jam14"
+                                            name="rtg03jam14" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg03jam15"
+                                            name="rtg03jam15" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg03jam16"
+                                            name="rtg03jam16" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg03jam17"
+                                            name="rtg03jam17" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg03jam18"
+                                            name="rtg03jam18" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg03jam19"
+                                            name="rtg03jam19" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg03jam20"
+                                            name="rtg03jam20" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg03jam21"
+                                            name="rtg03jam21" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg03jam22"
+                                            name="rtg03jam22" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg03jam23"
+                                            name="rtg03jam23" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg03jam24"
+                                            name="rtg03jam24" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">RTG 04</th>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg04jam1"
+                                            name="rtg04jam1" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg04jam2"
+                                            name="rtg04jam2" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg04jam3"
+                                            name="rtg04jam3" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg04jam4"
+                                            name="rtg04jam4" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg04jam5"
+                                            name="rtg04jam5" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg04jam6"
+                                            name="rtg04jam6" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg04jam7"
+                                            name="rtg04jam7" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg04jam8"
+                                            name="rtg04jam8" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg04jam9"
+                                            name="rtg04jam9" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg04jam10"
+                                            name="rtg04jam10" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg04jam11"
+                                            name="rtg04jam11" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg04jam12"
+                                            name="rtg04jam12" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg04jam13"
+                                            name="rtg04jam13" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg04jam14"
+                                            name="rtg04jam14" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg04jam15"
+                                            name="rtg04jam15" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg04jam16"
+                                            name="rtg04jam16" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg04jam17"
+                                            name="rtg04jam17" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg04jam18"
+                                            name="rtg04jam18" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg04jam19"
+                                            name="rtg04jam19" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg04jam20"
+                                            name="rtg04jam20" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg04jam21"
+                                            name="rtg04jam21" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg04jam22"
+                                            name="rtg04jam22" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg04jam23"
+                                            name="rtg04jam23" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg04jam24"
+                                            name="rtg04jam24" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">RTG 05</th>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg05jam1"
+                                            name="rtg05jam1" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg05jam2"
+                                            name="rtg05jam2" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg05jam3"
+                                            name="rtg05jam3" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg05jam4"
+                                            name="rtg05jam4" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg05jam5"
+                                            name="rtg05jam5" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg05jam6"
+                                            name="rtg05jam6" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg05jam7"
+                                            name="rtg05jam7" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg05jam8"
+                                            name="rtg05jam8" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg05jam9"
+                                            name="rtg05jam9" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg05jam10"
+                                            name="rtg05jam10" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg05jam11"
+                                            name="rtg05jam11" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg05jam12"
+                                            name="rtg05jam12" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg05jam13"
+                                            name="rtg05jam13" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg05jam14"
+                                            name="rtg05jam14" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg05jam15"
+                                            name="rtg05jam15" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg05jam16"
+                                            name="rtg05jam16" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg05jam17"
+                                            name="rtg05jam17" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg05jam18"
+                                            name="rtg05jam18" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg05jam19"
+                                            name="rtg05jam19" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg05jam20"
+                                            name="rtg05jam20" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg05jam21"
+                                            name="rtg05jam21" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg05jam22"
+                                            name="rtg05jam22" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg05jam23"
+                                            name="rtg05jam23" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg05jam24"
+                                            name="rtg05jam24" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">RTG 06</th>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg06jam1"
+                                            name="rtg06jam1" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg06jam2"
+                                            name="rtg06jam2" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg06jam3"
+                                            name="rtg06jam3" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg06jam4"
+                                            name="rtg06jam4" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg06jam5"
+                                            name="rtg06jam5" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg06jam6"
+                                            name="rtg06jam6" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg06jam7"
+                                            name="rtg06jam7" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg06jam8"
+                                            name="rtg06jam8" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg06jam9"
+                                            name="rtg06jam9" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg06jam10"
+                                            name="rtg06jam10" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg06jam11"
+                                            name="rtg06jam11" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg06jam12"
+                                            name="rtg06jam12" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg06jam13"
+                                            name="rtg06jam13" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg06jam14"
+                                            name="rtg06jam14" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg06jam15"
+                                            name="rtg06jam15" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg06jam16"
+                                            name="rtg06jam16" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg06jam17"
+                                            name="rtg06jam17" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg06jam18"
+                                            name="rtg06jam18" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg06jam19"
+                                            name="rtg06jam19" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg06jam20"
+                                            name="rtg06jam20" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg06jam21"
+                                            name="rtg06jam21" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg06jam22"
+                                            name="rtg06jam22" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg06jam23"
+                                            name="rtg06jam23" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg06jam24"
+                                            name="rtg06jam24" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">RTG 08</th>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg08jam1"
+                                            name="rtg08jam1" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg08jam2"
+                                            name="rtg08jam2" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg08jam3"
+                                            name="rtg08jam3" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg08jam4"
+                                            name="rtg08jam4" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg08jam5"
+                                            name="rtg08jam5" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg08jam6"
+                                            name="rtg08jam6" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg08jam7"
+                                            name="rtg08jam7" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg08jam8"
+                                            name="rtg08jam8" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg08jam9"
+                                            name="rtg08jam9" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg08jam10"
+                                            name="rtg08jam10" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg08jam11"
+                                            name="rtg08jam11" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg08jam12"
+                                            name="rtg08jam12" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg08jam13"
+                                            name="rtg08jam13" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg08jam14"
+                                            name="rtg08jam14" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg08jam15"
+                                            name="rtg08jam15" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg08jam16"
+                                            name="rtg08jam16" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg08jam17"
+                                            name="rtg08jam17" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg08jam18"
+                                            name="rtg08jam18" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg08jam19"
+                                            name="rtg08jam19" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg08jam20"
+                                            name="rtg08jam20" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg08jam21"
+                                            name="rtg08jam21" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg08jam22"
+                                            name="rtg08jam22" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg08jam23"
+                                            name="rtg08jam23" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg08jam24"
+                                            name="rtg08jam24" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">RTG 09</th>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg09jam1"
+                                            name="rtg09jam1" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg09jam2"
+                                            name="rtg09jam2" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg09jam3"
+                                            name="rtg09jam3" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg09jam4"
+                                            name="rtg09jam4" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg09jam5"
+                                            name="rtg09jam5" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg09jam6"
+                                            name="rtg09jam6" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg09jam7"
+                                            name="rtg09jam7" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg09jam8"
+                                            name="rtg09jam8" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg09jam9"
+                                            name="rtg09jam9" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg09jam10"
+                                            name="rtg09jam10" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg09jam11"
+                                            name="rtg09jam11" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg09jam12"
+                                            name="rtg09jam12" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg09jam13"
+                                            name="rtg09jam13" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg09jam14"
+                                            name="rtg09jam14" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg09jam15"
+                                            name="rtg09jam15" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg09jam16"
+                                            name="rtg09jam16" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg09jam17"
+                                            name="rtg09jam17" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg09jam18"
+                                            name="rtg09jam18" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg09jam19"
+                                            name="rtg09jam19" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg09jam20"
+                                            name="rtg09jam20" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg09jam21"
+                                            name="rtg09jam21" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg09jam22"
+                                            name="rtg09jam22" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg09jam23"
+                                            name="rtg09jam23" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg09jam24"
+                                            name="rtg09jam24" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">RTG 10</th>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg10jam1"
+                                            name="rtg10jam1" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg10jam2"
+                                            name="rtg10jam2" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg10jam3"
+                                            name="rtg10jam3" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg10jam4"
+                                            name="rtg10jam4" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg10jam5"
+                                            name="rtg10jam5" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg10jam6"
+                                            name="rtg10jam6" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg10jam7"
+                                            name="rtg10jam7" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg10jam8"
+                                            name="rtg10jam8" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg10jam9"
+                                            name="rtg10jam9" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg10jam10"
+                                            name="rtg10jam10" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg10jam11"
+                                            name="rtg10jam11" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg10jam12"
+                                            name="rtg10jam12" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg10jam13"
+                                            name="rtg10jam13" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg10jam14"
+                                            name="rtg10jam14" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg10jam15"
+                                            name="rtg10jam15" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg10jam16"
+                                            name="rtg10jam16" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg10jam17"
+                                            name="rtg10jam17" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg10jam18"
+                                            name="rtg10jam18" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg10jam19"
+                                            name="rtg10jam19" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg10jam20"
+                                            name="rtg10jam20" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg10jam21"
+                                            name="rtg10jam21" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg10jam22"
+                                            name="rtg10jam22" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg10jam23"
+                                            name="rtg10jam23" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg10jam24"
+                                            name="rtg10jam24" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">RTG 11</th>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg11jam1"
+                                            name="rtg11jam1" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg11jam2"
+                                            name="rtg11jam2" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg11jam3"
+                                            name="rtg11jam3" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg11jam4"
+                                            name="rtg11jam4" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg11jam5"
+                                            name="rtg11jam5" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg11jam6"
+                                            name="rtg11jam6" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg11jam7"
+                                            name="rtg11jam7" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg11jam8"
+                                            name="rtg11jam8" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg11jam9"
+                                            name="rtg11jam9" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg11jam10"
+                                            name="rtg11jam10" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg11jam11"
+                                            name="rtg11jam11" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg11jam12"
+                                            name="rtg11jam12" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg11jam13"
+                                            name="rtg11jam13" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg11jam14"
+                                            name="rtg11jam14" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg11jam15"
+                                            name="rtg11jam15" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg11jam16"
+                                            name="rtg11jam16" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg11jam17"
+                                            name="rtg11jam17" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg11jam18"
+                                            name="rtg11jam18" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg11jam19"
+                                            name="rtg11jam19" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg11jam20"
+                                            name="rtg11jam20" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg11jam21"
+                                            name="rtg11jam21" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg11jam22"
+                                            name="rtg11jam22" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg11jam23"
+                                            name="rtg11jam23" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg11jam24"
+                                            name="rtg11jam24" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">RTG 12</th>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg12jam1"
+                                            name="rtg12jam1" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg12jam2"
+                                            name="rtg12jam2" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg12jam3"
+                                            name="rtg12jam3" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg12jam4"
+                                            name="rtg12jam4" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg12jam5"
+                                            name="rtg12jam5" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg12jam6"
+                                            name="rtg12jam6" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg12jam7"
+                                            name="rtg12jam7" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg12jam8"
+                                            name="rtg12jam8" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg12jam9"
+                                            name="rtg12jam9" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg12jam10"
+                                            name="rtg12jam10" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg12jam11"
+                                            name="rtg12jam11" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg12jam12"
+                                            name="rtg12jam12" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg12jam13"
+                                            name="rtg12jam13" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg12jam14"
+                                            name="rtg12jam14" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg12jam15"
+                                            name="rtg12jam15" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg12jam16"
+                                            name="rtg12jam16" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg12jam17"
+                                            name="rtg12jam17" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg12jam18"
+                                            name="rtg12jam18" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg12jam19"
+                                            name="rtg12jam19" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg12jam20"
+                                            name="rtg12jam20" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg12jam21"
+                                            name="rtg12jam21" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg12jam22"
+                                            name="rtg12jam22" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg12jam23"
+                                            name="rtg12jam23" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg12jam24"
+                                            name="rtg12jam24" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">RTG 13</th>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg13jam1"
+                                            name="rtg13jam1" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg13jam2"
+                                            name="rtg13jam2" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg13jam3"
+                                            name="rtg13jam3" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg13jam4"
+                                            name="rtg13jam4" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg13jam5"
+                                            name="rtg13jam5" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg13jam6"
+                                            name="rtg13jam6" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg13jam7"
+                                            name="rtg13jam7" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg13jam8"
+                                            name="rtg13jam8" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg13jam9"
+                                            name="rtg13jam9" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg13jam10"
+                                            name="rtg13jam10" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg13jam11"
+                                            name="rtg13jam11" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg13jam12"
+                                            name="rtg13jam12" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg13jam13"
+                                            name="rtg13jam13" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg13jam14"
+                                            name="rtg13jam14" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg13jam15"
+                                            name="rtg13jam15" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg13jam16"
+                                            name="rtg13jam16" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg13jam17"
+                                            name="rtg13jam17" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg13jam18"
+                                            name="rtg13jam18" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg13jam19"
+                                            name="rtg13jam19" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg13jam20"
+                                            name="rtg13jam20" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg13jam21"
+                                            name="rtg13jam21" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg13jam22"
+                                            name="rtg13jam22" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg13jam23"
+                                            name="rtg13jam23" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="rtg13jam24"
+                                            name="rtg13jam24" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <a>BREAKDOWN</a>
+            <div class="input-group d-flex justify-content-center">
+                <textarea class="form-control custom-textarea" aria-label="With textarea" id="breakdown"
+                    name="breakdown"></textarea>
+            </div>
+            <a>CORRECTIVE</a>
+            <div class="input-group d-flex justify-content-center">
+                <textarea class="form-control custom-textarea" aria-label="With textarea" id="corrective"
+                    name="corrective"></textarea>
+            </div>
+            <a>PREVENTIVE</a>
+            <div class="input-group d-flex justify-content-center">
+                <textarea class="form-control custom-textarea" aria-label="With textarea" id="preventive"
+                    name="preventive"></textarea>
+            </div>
+            <a>ACCIDENT</a>
+            <div class="input-group d-flex justify-content-center">
+                <textarea class="form-control custom-textarea" aria-label="With textarea" id="accident"
+                    name="accident"></textarea>
+            </div>
+            <a>REMARK</a>
+            <div class="input-group d-flex justify-content-center">
+                <textarea class="form-control custom-textarea" aria-label="With textarea" id="remark"
+                    name="remark"></textarea>
+            </div>
+            <div class="custom-btn" style="margin-top: 50px;">
+                <button class="btn btn-primary" onclick="input()" type="submit">Save</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- footer -->
+    <footer id="footer"
+        class="d-flex flex-wrap justify-content-between align-items-center py-5 border-top bg-black text-white"
+        style="background-color: black; margin-top: 100px;">
+    </footer>
+</body>
+
+</html>

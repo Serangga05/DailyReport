@@ -1,0 +1,875 @@
+<tbody>
+    <tr>
+        <th scope="row">CC 01</th>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc01jam1"
+                    name="cc01jam1" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc01jam1 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc01jam2"
+                    name="cc01jam2" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc01jam2 }}">
+            </div>
+        </td>
+
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc01jam3"
+                    name="cc01jam3" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc01jam3 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc01jam4"
+                    name="cc01jam4" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc01jam4 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc01jam5"
+                    name="cc01jam5" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc01jam5 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc01jam6"
+                    name="cc01jam6" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc01jam6 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc01jam7"
+                    name="cc01jam7" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc01jam7 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc01jam8"
+                    name="cc01jam8" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc01jam8 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc01jam9"
+                    name="cc01jam9" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc01jam9 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc01jam10"
+                    name="cc01jam10" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc01jam10 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc01jam11"
+                    name="cc01jam11" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc01jam11 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc01jam12"
+                    name="cc01jam12" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc01jam12 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc01jam13"
+                    name="cc01jam13" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc01jam13 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc01jam14"
+                    name="cc01jam14" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc01jam14 }}">
+            </div>
+        </td>
+
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc01jam15"
+                    name="cc01jam15" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc01jam15 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc01jam16"
+                    name="cc01jam16" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc01jam16 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc01jam17"
+                    name="cc01jam17" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc01jam17 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc01jam18"
+                    name="cc01jam18" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc01jam18 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc01jam19"
+                    name="cc01jam19" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc01jam19 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc01jam20"
+                    name="cc01jam20" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc01jam20 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc01jam21"
+                    name="cc01jam21" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc01jam21 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc01jam22"
+                    name="cc01jam22" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc01jam22 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc01jam23"
+                    name="cc01jam23" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc01jam23 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc01jam24"
+                    name="cc01jam24" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc01jam24 }}">
+            </div>
+        </td>
+
+    </tr>
+
+    <tr>
+        <th scope="row">CC 03</th>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc03jam1"
+                    name="cc03jam1" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc03jam1 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc03jam2"
+                    name="cc03jam2" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc03jam2 }}">
+            </div>
+        </td>
+
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc03jam3"
+                    name="cc03jam3" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc03jam3 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc03jam4"
+                    name="cc03jam4" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc03jam4 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc03jam5"
+                    name="cc03jam5" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc03jam5 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc03jam6"
+                    name="cc03jam6" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc03jam6 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc03jam7"
+                    name="cc03jam7" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc03jam7 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc03jam8"
+                    name="cc03jam8" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc03jam8 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc03jam9"
+                    name="cc03jam9" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc03jam9 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc03jam10"
+                    name="cc03jam10" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc03jam10 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc03jam11"
+                    name="cc03jam11" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc03jam11 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc03jam12"
+                    name="cc03jam12" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc03jam12 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc03jam13"
+                    name="cc03jam13" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc03jam13 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc03jam14"
+                    name="cc03jam14" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc03jam14 }}">
+            </div>
+        </td>
+
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc03jam15"
+                    name="cc03jam15" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc03jam15 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc03jam16"
+                    name="cc03jam16" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc03jam16 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc03jam17"
+                    name="cc03jam17" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc03jam17 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc03jam18"
+                    name="cc03jam18" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc03jam18 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc03jam19"
+                    name="cc03jam19" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc03jam19 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc03jam20"
+                    name="cc03jam20" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc03jam20 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc03jam21"
+                    name="cc03jam21" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc03jam21 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc03jam22"
+                    name="cc03jam22" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc03jam22 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc03jam23"
+                    name="cc03jam23" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc03jam23 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc03jam24"
+                    name="cc03jam24" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc03jam24 }}">
+            </div>
+        </td>
+    </tr>
+
+    <tr>
+        <th scope="row">CC 04</th>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc04jam1"
+                    name="cc04jam1" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc04jam1 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc04jam2"
+                    name="cc04jam2" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc04jam2 }}">
+            </div>
+        </td>
+
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc04jam3"
+                    name="cc04jam3" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc04jam3 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc04jam4"
+                    name="cc04jam4" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc04jam4 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc04jam5"
+                    name="cc04jam5" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc04jam5 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc04jam6"
+                    name="cc04jam6" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc04jam6 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc04jam7"
+                    name="cc04jam7" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc04jam7 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc04jam8"
+                    name="cc04jam8" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc04jam8 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc04jam9"
+                    name="cc04jam9" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc04jam9 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc04jam10"
+                    name="cc04jam10" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc04jam10 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc04jam11"
+                    name="cc04jam11" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc04jam11 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc04jam12"
+                    name="cc04jam12" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc04jam12 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc04jam13"
+                    name="cc04jam13" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc04jam13 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc04jam14"
+                    name="cc04jam14" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc04jam14 }}">
+            </div>
+        </td>
+
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc04jam15"
+                    name="cc04jam15" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc04jam15 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc04jam16"
+                    name="cc04jam16" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc04jam16 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc04jam17"
+                    name="cc04jam17" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc04jam17 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc04jam18"
+                    name="cc04jam18" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc04jam18 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc04jam19"
+                    name="cc04jam19" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc04jam19 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc04jam20"
+                    name="cc04jam20" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc04jam20 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc04jam21"
+                    name="cc04jam21" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc04jam21 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc04jam22"
+                    name="cc04jam22" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc04jam22 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc04jam23"
+                    name="cc04jam23" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc04jam23 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc04jam24"
+                    name="cc04jam24" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc04jam24 }}">
+            </div>
+        </td>
+    </tr>
+
+    <tr>
+        <th scope="row">CC 05</th>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc05jam1"
+                    name="cc05jam1" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc05jam1 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc05jam2"
+                    name="cc05jam2" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc05jam2 }}">
+            </div>
+        </td>
+
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc05jam3"
+                    name="cc05jam3" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc05jam3 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc05jam4"
+                    name="cc05jam4" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc05jam4 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc05jam5"
+                    name="cc05jam5" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc05jam5 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc05jam6"
+                    name="cc05jam6" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc05jam6 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc05jam7"
+                    name="cc05jam7" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc05jam7 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc05jam8"
+                    name="cc05jam8" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc05jam8 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc05jam9"
+                    name="cc05jam9" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc05jam9 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc05jam10"
+                    name="cc05jam10" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc05jam10 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc05jam11"
+                    name="cc05jam11" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc05jam11 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc05jam12"
+                    name="cc05jam12" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc05jam12 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc05jam13"
+                    name="cc05jam13" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc05jam13 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc05jam14"
+                    name="cc05jam14" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc05jam14 }}">
+            </div>
+        </td>
+
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc05jam15"
+                    name="cc05jam15" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc05jam15 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc05jam16"
+                    name="cc05jam16" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc05jam16 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc05jam17"
+                    name="cc05jam17" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc05jam17 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc05jam18"
+                    name="cc05jam18" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc05jam18 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc05jam19"
+                    name="cc05jam19" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc05jam19 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc05jam20"
+                    name="cc05jam20" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc05jam20 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc05jam21"
+                    name="cc05jam21" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc05jam21 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc05jam22"
+                    name="cc05jam22" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc05jam22 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc05jam23"
+                    name="cc05jam23" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc05jam23 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc05jam24"
+                    name="cc05jam24" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc05jam24 }}">
+            </div>
+        </td>
+    </tr>
+
+    <tr>
+        <th scope="row">CC 06</th>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc06jam1"
+                    name="cc06jam1" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc06jam1 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc06jam2"
+                    name="cc06jam2" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc06jam2 }}">
+            </div>
+        </td>
+
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc06jam3"
+                    name="cc06jam3" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc06jam3 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc06jam4"
+                    name="cc06jam4" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc06jam4 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc06jam5"
+                    name="cc06jam5" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc06jam5 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc06jam6"
+                    name="cc06jam6" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc06jam6 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc06jam7"
+                    name="cc06jam7" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc06jam7 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc06jam8"
+                    name="cc06jam8" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc06jam8 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc06jam9"
+                    name="cc06jam9" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc06jam9 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc06jam10"
+                    name="cc06jam10" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc06jam10 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc06jam11"
+                    name="cc06jam11" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc06jam11 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc06jam12"
+                    name="cc06jam12" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc06jam12 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc06jam13"
+                    name="cc06jam13" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc06jam13 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc06jam14"
+                    name="cc06jam14" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc06jam14 }}">
+            </div>
+        </td>
+
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc06jam15"
+                    name="cc06jam15" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc06jam15 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc06jam16"
+                    name="cc06jam16" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc06jam16 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc06jam17"
+                    name="cc06jam17" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc06jam17 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc06jam18"
+                    name="cc06jam18" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc06jam18 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc06jam19"
+                    name="cc06jam19" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc06jam19 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc06jam20"
+                    name="cc06jam20" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc06jam20 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc06jam21"
+                    name="cc06jam21" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc06jam21 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc06jam22"
+                    name="cc06jam22" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc06jam22 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc06jam23"
+                    name="cc06jam23" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc06jam23 }}">
+            </div>
+        </td>
+        <td>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control custom-input" id="cc06jam24"
+                    name="cc06jam24" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" value="{{ data.cc06jam24 }}">
+            </div>
+        </td>
+    </tr>
+
+</tbody>
+
+<img src="https://cdn.learningx.com/Frame-1661443362213.svg" alt="learningX" class="img d-block" data-v-52f7619d="">

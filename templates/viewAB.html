@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Report</title>
+
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!-- JAVASCRIPT -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.js"
+        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
+    <style>
+        .custom-input {
+            max-width: 120px;
+        }
+
+        .custom-textarea {
+            width: 100px;
+            height: 150px;
+            margin: 0 auto;
+        }
+
+        .custom-btn {
+            display: flex;
+            justify-content: flex-end;
+        }
+    </style>
+
+    <script>
+        function logout() {
+            // Delete the cookie by setting an expiration date in the past
+            document.cookie = "mytoken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            // Redirect to the login page
+            window.location.replace("/");
+        }
+    </script>
+
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg bg-black">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/" style="color: white;">Daily Report</a>
+            <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a onclick="logout()" class="nav-link active" aria-current="page" href="#"
+                            style="color: white;">Log out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- DAILY REPORT TABLE -->
+
+
+
+    <div class="container-fluid" style="margin-top: 50px;">
+        <div class="wrapper">
+            <form action="/viewAB" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="{{data['_id']}}">
+
+                <div class="d-flex justify-content-center">
+                    <input class="form-control text-center" type="text" value="{{data.unit}}" id="unit" name="unit"
+                        aria-label="readonly input example" style="font-size: 24px; font-weight: bold;" readonly>
+                </div>
+
+                <div class="input-group input-group-sm mb-3" style="margin-top: 20px;">
+                    <input type="date" class="form-control custom-input" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-sm" id="tanggal" name="tanggal" value="{{data.tanggal}}"
+                        readonly>
+                </div>
+                <div class="bd-example">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col">1</th>
+                                    <th scope="col">2</th>
+                                    <th scope="col">3</th>
+                                    <th scope="col">4</th>
+                                    <th scope="col">5</th>
+                                    <th scope="col">6</th>
+                                    <th scope="col">7</th>
+                                    <th scope="col">8</th>
+                                    <th scope="col">9</th>
+                                    <th scope="col">10</th>
+                                    <th scope="col">11</th>
+                                    <th scope="col">12</th>
+                                    <th scope="col">13</th>
+                                    <th scope="col">14</th>
+                                    <th scope="col">15</th>
+                                    <th scope="col">16</th>
+                                    <th scope="col">17</th>
+                                    <th scope="col">18</th>
+                                    <th scope="col">19</th>
+                                    <th scope="col">20</th>
+                                    <th scope="col">21</th>
+                                    <th scope="col">22</th>
+                                    <th scope="col">23</th>
+                                    <th scope="col">24</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <th scope="row">RS 01</th>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rs01jam1 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rs01jam2 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rs01jam3 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rs01jam4 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rs01jam5 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rs01jam6 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rs01jam7 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rs01jam8 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rs01jam9 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rs01jam10 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rs01jam11 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rs01jam12 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rs01jam13 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rs01jam14 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rs01jam15 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rs01jam16 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rs01jam17 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rs01jam18 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rs01jam19 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rs01jam20 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rs01jam21 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rs01jam22 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rs01jam23 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rs01jam24 }}
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">RS 02</th>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rs02jam1 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rs02jam2 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rs02jam3 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rs02jam4 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rs02jam5 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rs02jam6 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rs02jam7 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rs02jam8 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rs02jam9 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rs02jam10 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rs02jam11 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rs02jam12 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rs02jam13 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rs02jam14 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rs02jam15 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rs02jam16 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rs02jam17 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rs02jam18 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rs02jam19 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rs02jam20 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rs02jam21 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rs02jam22 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rs02jam23 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.rs02jam24 }}
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">SL</th>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.sljam1 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.sljam2 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.sljam3 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.sljam4 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.sljam5 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.sljam6 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.sljam7 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.sljam8 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.sljam9 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.sljam10 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.sljam11 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.sljam12 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.sljam13 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.sljam14 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.sljam15 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.sljam16 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.sljam17 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.sljam18 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.sljam19 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.sljam20 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.sljam21 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.sljam22 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.sljam23 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.sljam24 }}
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">FL 03</th>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl03jam1 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl03jam2 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl03jam3 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl03jam4 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl03jam5 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl03jam6 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl03jam7 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl03jam8 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl03jam9 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl03jam10 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl03jam11 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl03jam12 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl03jam13 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl03jam14 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl03jam15 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl03jam16 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl03jam17 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl03jam18 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl03jam19 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl03jam20 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl03jam21 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl03jam22 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl03jam23 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl03jam24 }}
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">FL 05</th>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl05jam1 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl05jam2 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl05jam3 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl05jam4 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl05jam5 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl05jam6 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl05jam7 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl05jam8 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl05jam9 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl05jam10 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl05jam11 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl05jam12 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl05jam13 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl05jam14 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl05jam15 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl05jam16 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl05jam17 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl05jam18 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl05jam19 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl05jam20 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl05jam21 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl05jam22 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl05jam23 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl05jam24 }}
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">FL 06</th>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl06jam1 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl06jam2 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl06jam3 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl06jam4 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl06jam5 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl06jam6 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl06jam7 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl06jam8 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl06jam9 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl06jam10 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl06jam11 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl06jam12 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl06jam13 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl06jam14 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl06jam15 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl06jam16 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl06jam17 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl06jam18 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl06jam19 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl06jam20 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl06jam21 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl06jam22 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl06jam23 }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group input-group-sm mb-3">
+                                            {{ data.fl06jam24 }}
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+                <a>BREAKDOWN</a>
+                <div class="input-group d-flex justify-content-center">
+                    <textarea class="form-control custom-textarea" aria-label="With textarea" id="breakdown"
+                        name="breakdown" readonly> {{data.breakdown}} </textarea>
+                </div>
+                <a>CORRECTIVE</a>
+                <div class="input-group d-flex justify-content-center">
+                    <textarea class="form-control custom-textarea" aria-label="With textarea" id="corrective"
+                        name="corrective" readonly>  {{data.corrective}} </textarea>
+                </div>
+                <a>PREVENTIVE</a>
+                <div class="input-group d-flex justify-content-center">
+                    <textarea class="form-control custom-textarea" aria-label="With textarea" id="preventive"
+                        name="preventive" readonly> {{data.preventive}} </textarea>
+                </div>
+                <a>ACCIDENT</a>
+                <div class="input-group d-flex justify-content-center">
+                    <textarea class="form-control custom-textarea" aria-label="With textarea" id="accident"
+                        name="accident" readonly>{{data.accident}}</textarea>
+                </div>
+                <a>REMARK</a>
+                <div class="input-group d-flex justify-content-center">
+                    <textarea class="form-control custom-textarea" aria-label="With textarea" id="remark" name="remark"
+                        readonly>{{data.remark}}</textarea>
+                </div>
+                <div class="custom-btn" style="margin-top: 50px;">
+                    <a class="btn btn-primary" href="/" role="button">kembali</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- footer -->
+    <footer id="footer"
+        class="d-flex flex-wrap justify-content-between align-items-center py-5 border-top bg-black text-white"
+        style="background-color: black; margin-top: 100px;">
+    </footer>
+</body>
+
+</html>

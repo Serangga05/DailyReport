@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Report</title>
+
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!-- JAVASCRIPT -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.js"
+        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
+    <style>
+        .custom-input {
+            max-width: 120px;
+        }
+
+        .custom-textarea {
+            width: 100px;
+            height: 150px;
+            margin: 0 auto;
+        }
+
+        .custom-btn {
+            display: flex;
+            justify-content: flex-end;
+        }
+    </style>
+
+    <script>
+        function logout() {
+            // Delete the cookie by setting an expiration date in the past
+            document.cookie = "mytoken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/login;";
+            // Redirect to the login page
+            window.location.replace("/login");
+        }
+        
+        function input() {
+            let unit = $('#unit').val();
+            let tanggal = $('#tanggal').val();
+
+            let cc01jam = [];
+            for (let i = 1; i <= 24; i++) {
+                cc01jam.push($(`#cc01jam${i}`).val());
+            }
+
+            let cc03jam = [];
+            for (let i = 1; i <= 24; i++) {
+                cc03jam.push($(`#cc03jam${i}`).val());
+            }
+
+            let cc04jam = [];
+            for (let i = 1; i <= 24; i++) {
+                cc04jam.push($(`#cc04jam${i}`).val());
+            }
+
+            let cc05jam = [];
+            for (let i = 1; i <= 24; i++) {
+                cc05jam.push($(`#cc05jam${i}`).val());
+            }
+
+            let cc06jam = [];
+            for (let i = 1; i <= 24; i++) {
+                cc06jam.push($(`#cc06jam${i}`).val());
+            }
+
+            let breakdown = $('#breakdown').val();
+            let corrective = $('#corrective').val();
+            let preventive = $('#preventive').val();
+            let accident = $('#accident').val();
+            let remark = $('#remark').val();
+
+            let form_data = new FormData();
+
+            form_data.append('unit_give', unit);
+            form_data.append('tanggal_give', tanggal);
+
+            for (let i = 0; i < 24; i++) {
+                form_data.append(`cc01jam${i + 1}_give`, cc01jam[i]);
+            }
+
+            for (let i = 0; i < 24; i++) {
+                form_data.append(`cc03jam${i + 1}_give`, cc03jam[i]);
+            }
+
+            for (let i = 0; i < 24; i++) {
+                form_data.append(`cc04jam${i + 1}_give`, cc04jam[i]);
+            }
+
+            for (let i = 0; i < 24; i++) {
+                form_data.append(`cc05jam${i + 1}_give`, cc05jam[i]);
+            }
+
+            for (let i = 0; i < 24; i++) {
+                form_data.append(`cc06jam${i + 1}_give`, cc06jam[i]);
+            }
+
+            form_data.append('breakdown_give', breakdown);
+            form_data.append('corrective_give', corrective);
+            form_data.append('preventive_give', preventive);
+            form_data.append('accident_give', accident);
+            form_data.append('remark_give', remark);
+
+            $.ajax({
+                type: "POST",
+                url: "/inputcc",
+                data: form_data,
+                contentType: false,
+                processData: false,
+                success: function (response) {
+                    {
+                        alert(response["msg"]);
+                        window.location.href = "/";
+                    }
+                },
+            });
+        }
+    </script>
+
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg bg-black">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/" style="color: white;">Daily Report</a>
+            <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a onclick="logout()" class="nav-link active" aria-current="page" href="#"
+                            style="color: white;">Log out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- DAILY REPORT TABLE -->
+    <div class="container-fluid" style="margin-top: 50px;">
+        <div class="wrapper">
+
+            <div class="d-flex justify-content-center">
+                <input class="form-control text-center" type="text" value="Daily Report CC" id="unit" name="unit"
+                    aria-label="readonly input example" style="font-size: 24px; font-weight: bold;" readonly>
+            </div>
+
+            <div class="input-group input-group-sm mb-3" style="margin-top: 20px;">
+                <input type="date" class="form-control custom-input" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" id="tanggal" name="tanggal">
+            </div>
+            <div class="bd-example">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col">1</th>
+                                <th scope="col">2</th>
+                                <th scope="col">3</th>
+                                <th scope="col">4</th>
+                                <th scope="col">5</th>
+                                <th scope="col">6</th>
+                                <th scope="col">7</th>
+                                <th scope="col">8</th>
+                                <th scope="col">9</th>
+                                <th scope="col">10</th>
+                                <th scope="col">11</th>
+                                <th scope="col">12</th>
+                                <th scope="col">13</th>
+                                <th scope="col">14</th>
+                                <th scope="col">15</th>
+                                <th scope="col">16</th>
+                                <th scope="col">17</th>
+                                <th scope="col">18</th>
+                                <th scope="col">19</th>
+                                <th scope="col">20</th>
+                                <th scope="col">21</th>
+                                <th scope="col">22</th>
+                                <th scope="col">23</th>
+                                <th scope="col">24</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">CC 01</th>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc01jam1"
+                                            name="cc01jam1" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc01jam2"
+                                            name="cc01jam2" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc01jam3"
+                                            name="cc01jam3" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc01jam4"
+                                            name="cc01jam4" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc01jam5"
+                                            name="cc01jam5" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc01jam6"
+                                            name="cc01jam6" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc01jam7"
+                                            name="cc01jam7" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc01jam8"
+                                            name="cc01jam8" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc01jam9"
+                                            name="cc01jam9" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc01jam10"
+                                            name="cc01jam10" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc01jam11"
+                                            name="cc01jam11" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc01jam12"
+                                            name="cc01jam12" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc01jam13"
+                                            name="cc01jam13" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc01jam14"
+                                            name="cc01jam14" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc01jam15"
+                                            name="cc01jam15" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc01jam16"
+                                            name="cc01jam16" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc01jam17"
+                                            name="cc01jam17" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc01jam18"
+                                            name="cc01jam18" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc01jam19"
+                                            name="cc01jam19" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc01jam20"
+                                            name="cc01jam20" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc01jam21"
+                                            name="cc01jam21" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc01jam22"
+                                            name="cc01jam22" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc01jam23"
+                                            name="cc01jam23" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc01jam24"
+                                            name="cc01jam24" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">CC 03</th>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc03jam1"
+                                            name="cc03jam1" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc03jam2"
+                                            name="cc03jam2" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc03jam3"
+                                            name="cc03jam3" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc03jam4"
+                                            name="cc03jam4" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc03jam5"
+                                            name="cc03jam5" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc03jam6"
+                                            name="cc03jam6" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc03jam7"
+                                            name="cc03jam7" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc03jam8"
+                                            name="cc03jam8" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc03jam9"
+                                            name="cc03jam9" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc03jam10"
+                                            name="cc03jam10" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc03jam11"
+                                            name="cc03jam11" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc03jam12"
+                                            name="cc03jam12" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc03jam13"
+                                            name="cc03jam13" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc03jam14"
+                                            name="cc03jam14" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc03jam15"
+                                            name="cc03jam15" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc03jam16"
+                                            name="cc03jam16" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc03jam17"
+                                            name="cc03jam17" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc03jam18"
+                                            name="cc03jam18" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc03jam19"
+                                            name="cc03jam19" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc03jam20"
+                                            name="cc03jam20" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc03jam21"
+                                            name="cc03jam21" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc03jam22"
+                                            name="cc03jam22" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc03jam23"
+                                            name="cc03jam23" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc03jam24"
+                                            name="cc03jam24" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">CC 04</th>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc04jam1"
+                                            name="cc04jam1" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc04jam2"
+                                            name="cc04jam2" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc04jam3"
+                                            name="cc04jam3" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc04jam4"
+                                            name="cc04jam4" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc04jam5"
+                                            name="cc04jam5" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc04jam6"
+                                            name="cc04jam6" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc04jam7"
+                                            name="cc04jam7" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc04jam8"
+                                            name="cc04jam8" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc04jam9"
+                                            name="cc04jam9" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc04jam10"
+                                            name="cc04jam10" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc04jam11"
+                                            name="cc04jam11" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc04jam12"
+                                            name="cc04jam12" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc04jam13"
+                                            name="cc04jam13" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc04jam14"
+                                            name="cc04jam14" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc04jam15"
+                                            name="cc04jam15" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc04jam16"
+                                            name="cc04jam16" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc04jam17"
+                                            name="cc04jam17" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc04jam18"
+                                            name="cc04jam18" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc04jam19"
+                                            name="cc04jam19" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc04jam20"
+                                            name="cc04jam20" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc04jam21"
+                                            name="cc04jam21" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc04jam22"
+                                            name="cc04jam22" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc04jam23"
+                                            name="cc04jam23" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc04jam24"
+                                            name="cc04jam24" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">CC 05</th>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc05jam1"
+                                            name="cc05jam1" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc05jam2"
+                                            name="cc05jam2" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc05jam3"
+                                            name="cc05jam3" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc05jam4"
+                                            name="cc05jam4" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc05jam5"
+                                            name="cc05jam5" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc05jam6"
+                                            name="cc05jam6" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc05jam7"
+                                            name="cc05jam7" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc05jam8"
+                                            name="cc05jam8" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc05jam9"
+                                            name="cc05jam9" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc05jam10"
+                                            name="cc05jam10" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc05jam11"
+                                            name="cc05jam11" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc05jam12"
+                                            name="cc05jam12" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc05jam13"
+                                            name="cc05jam13" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc05jam14"
+                                            name="cc05jam14" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc05jam15"
+                                            name="cc05jam15" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc05jam16"
+                                            name="cc05jam16" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc05jam17"
+                                            name="cc05jam17" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc05jam18"
+                                            name="cc05jam18" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc05jam19"
+                                            name="cc05jam19" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc05jam20"
+                                            name="cc05jam20" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc05jam21"
+                                            name="cc05jam21" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc05jam22"
+                                            name="cc05jam22" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc05jam23"
+                                            name="cc05jam23" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc05jam24"
+                                            name="cc05jam24" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">CC 06</th>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc06jam1"
+                                            name="cc06jam1" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc06jam2"
+                                            name="cc06jam2" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc06jam3"
+                                            name="cc06jam3" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc06jam4"
+                                            name="cc06jam4" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc06jam5"
+                                            name="cc06jam5" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc06jam6"
+                                            name="cc06jam6" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc06jam7"
+                                            name="cc06jam7" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc06jam8"
+                                            name="cc06jam8" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc06jam9"
+                                            name="cc06jam9" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc06jam10"
+                                            name="cc06jam10" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc06jam11"
+                                            name="cc06jam11" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc06jam12"
+                                            name="cc06jam12" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc06jam13"
+                                            name="cc06jam13" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc06jam14"
+                                            name="cc06jam14" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc06jam15"
+                                            name="cc06jam15" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc06jam16"
+                                            name="cc06jam16" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc06jam17"
+                                            name="cc06jam17" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc06jam18"
+                                            name="cc06jam18" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc06jam19"
+                                            name="cc06jam19" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc06jam20"
+                                            name="cc06jam20" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc06jam21"
+                                            name="cc06jam21" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc06jam22"
+                                            name="cc06jam22" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc06jam23"
+                                            name="cc06jam23" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control custom-input" id="cc06jam24"
+                                            name="cc06jam24" aria-label="Sizing example input"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <a>BREAKDOWN</a>
+            <div class="input-group d-flex justify-content-center">
+                <textarea class="form-control custom-textarea" aria-label="With textarea" id="breakdown"
+                    name="breakdown"></textarea>
+            </div>
+            <a>CORRECTIVE</a>
+            <div class="input-group d-flex justify-content-center">
+                <textarea class="form-control custom-textarea" aria-label="With textarea" id="corrective"
+                    name="corrective"></textarea>
+            </div>
+            <a>PREVENTIVE</a>
+            <div class="input-group d-flex justify-content-center">
+                <textarea class="form-control custom-textarea" aria-label="With textarea" id="preventive"
+                    name="preventive"></textarea>
+            </div>
+            <a>ACCIDENT</a>
+            <div class="input-group d-flex justify-content-center">
+                <textarea class="form-control custom-textarea" aria-label="With textarea" id="accident"
+                    name="accident"></textarea>
+            </div>
+            <a>REMARK</a>
+            <div class="input-group d-flex justify-content-center">
+                <textarea class="form-control custom-textarea" aria-label="With textarea" id="remark"
+                    name="remark"></textarea>
+            </div>
+            <div class="custom-btn" style="margin-top: 50px;">
+                <button class="btn btn-primary" onclick="input()" type="submit">Save</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- footer -->
+    <footer id="footer"
+        class="d-flex flex-wrap justify-content-between align-items-center py-5 border-top bg-black text-white"
+        style="background-color: black; margin-top: 100px;">
+    </footer>
+</body>
+
+</html>
