@@ -38,13 +38,24 @@ def sign_in():
     username_receive = request.form["username_give"]
     password_receive = request.form["password_give"]
     pw_hash = hashlib.sha256(password_receive.encode("utf-8")).hexdigest()
-    result = db.teknisi.find_one(
+
+    # Cari pengguna di db.teknisi
+    teknisi_result = db.teknisi.find_one(
         {
             "username": username_receive,
             "password": pw_hash,
         }
     )
-    if result:
+
+    # Cari pengguna di db.admin
+    admin_result = db.admin.find_one(
+        {
+            "username": username_receive,
+            "password": pw_hash,
+        }
+    )
+
+    if teknisi_result or admin_result:
         payload = {
             "id": username_receive,
             "exp": datetime.utcnow() + timedelta(seconds=60 * 60 * 24),
@@ -64,6 +75,7 @@ def sign_in():
                 "msg": "We could not find a user with that id/password combination",
             }
         )
+
 
         
 

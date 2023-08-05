@@ -46,9 +46,10 @@
 
     <!-- DAILY REPORT TABLE -->
     <div class="container mt-4">
+        {% if user_info %} <!-- Jika pengguna adalah admin -->
         <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
+            <!-- Dropdown hanya ditampilkan jika pengguna adalah admin -->
+            <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Input Daily Report
             </button>
             <ul class="dropdown-menu">
@@ -56,9 +57,9 @@
                 <li><a class="dropdown-item" href="/dailyRTG">RUBBER TYRED GANTRY</a></li>
                 <li><a class="dropdown-item" href="/dailyAB">ALAT BANTU</a></li>
                 <li><a class="dropdown-item" href="/dailyHT">HEAD TRUCK</a></li>
-
             </ul>
         </div>
+        {% endif %}
         <div class="d-flex justify-content-center align-items-center my-4">
             <h1><strong>CONTAINER CRANE</strong></h1>
         </div>
